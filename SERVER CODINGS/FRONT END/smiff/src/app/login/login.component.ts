@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -11,5 +11,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  login = {
+    signup : false,
+    signin : true
+  }
 }
