@@ -1,3 +1,4 @@
+import { trigger } from '@angular/animations';
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
 
 @Component({
@@ -11,8 +12,5 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  login = {
-    signup : false,
-    signin : true
-  }
+
 }

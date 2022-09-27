@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "smiff-15322": {
+      "hosting": {
+        "smiff": [
+          "smiff-15322"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "smiff-15322"
+  }
+}

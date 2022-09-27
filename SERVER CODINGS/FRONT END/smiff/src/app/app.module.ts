@@ -9,6 +9,11 @@ import { AdminallComponent } from './adminall/adminall.component';
 import { AdminpetrolComponent } from './adminpetrol/adminpetrol.component';
 import { UserComponent } from './user/user.component';
 import { SignupComponent } from './signup/signup.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideFunctions,getFunctions } from '@angular/fire/functions';
 
 @NgModule({
   declarations: [
@@ -22,7 +27,11 @@ import { SignupComponent } from './signup/signup.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+    provideFunctions(() => getFunctions())
   ],
   providers: [],
   bootstrap: [AppComponent]
