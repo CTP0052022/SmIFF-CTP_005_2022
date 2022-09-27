@@ -1,9 +1,5 @@
 import { Injectable, NgZone } from '@angular/core';
-<<<<<<< HEAD
 import { User } from './services/user';
-=======
-import {User} from './services/user';
->>>>>>> 89c161fc3a8a15e9030d8596c1c182347497d7a2
 import * as auth from 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import {
