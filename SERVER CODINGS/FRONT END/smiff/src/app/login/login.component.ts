@@ -1,5 +1,6 @@
-import { trigger } from '@angular/animations';
-import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,9 +9,20 @@ import { Component, OnInit, ViewContainerRef } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  title = 'firebase-angular-auth';
+  isSignedIn = false
+  constructor(
+    private firebaseService : AuthService,
+    private router : Router){}
+
+  async onSignin(email:string,password:string){
+    await this.firebaseService.login(email,password).then(() => this.router.navigate(['/Adminall'])).catch((e)=>console.log(e.message));
+  }
+  
+  
 
   ngOnInit(): void {
+    
   }
 
 }
