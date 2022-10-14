@@ -5,7 +5,7 @@ import { AuthrouteGuard } from './authroute.guard';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  {path: 'Adminall',component:AdminallComponent,canActivate:[AuthrouteGuard]},
+  {path: 'Adminall',component:AdminallComponent},
   {path: 'Login',component:LoginComponent}
 ];
 
