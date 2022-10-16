@@ -18,12 +18,10 @@ export class AuthService {
   ) {
     this.user$=user(this.af);
   }
-  login(email:string,password:string){
+  async login(email:string,password:string){
     return signInWithEmailAndPassword(this.af,email,password)
   }
   
-  async isLoggedIn() :Promise<boolean>{
-    return !! await this.user$.pipe(take(1)).toPromise();
-  }
+  
   
 }

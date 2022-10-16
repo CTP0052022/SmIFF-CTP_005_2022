@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
     private router : Router){}
 
   async onSignin(email:string,password:string){
-    await this.firebaseService.login(email,password).then(() => this.router.navigate(['/Adminall'])).catch((e)=>console.log(e.message));
+    await this.firebaseService.login(email,password).catch((e)=>console.log(e.message));
   }
   
   
