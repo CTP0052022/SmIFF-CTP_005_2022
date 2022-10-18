@@ -19,6 +19,13 @@ export class LoginComponent implements OnInit {
     await this.firebaseService.login(email,password).catch((e)=>console.log(e.message));
   }
   
+  /*
+  Not sure how this works. Change to enable registering.
+  async onRegister(email:string,password:string){
+    await this.firebaseService.login(email,password).catch((e)=>console.log(e.message));
+  }
+  
+  */
   
 
   ngOnInit(): void {}
