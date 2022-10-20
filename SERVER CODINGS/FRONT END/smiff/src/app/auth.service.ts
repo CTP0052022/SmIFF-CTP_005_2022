@@ -1,7 +1,7 @@
 import { Injectable, NgZone } from '@angular/core';
 
 import {User} from './services/user';
-import { Auth,AuthInstances,authState,createUserWithEmailAndPassword,signInWithEmailAndPassword, user} from '@angular/fire/auth';
+import { Auth,AuthInstances,authState,createUserWithEmailAndPassword,signInWithEmailAndPassword, signOut, user} from '@angular/fire/auth';
 import {
   AngularFirestore,
   AngularFirestoreDocument,
@@ -12,16 +12,23 @@ import { first, Observable, take } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  user$: Observable<any>; // Save logged in user data
+   // Save logged in user data
   constructor(
-    private af:Auth
+    private af:Auth,
+    public router:Router
   ) {
-    this.user$=user(this.af);
+    
   }
-  async login(email:string,password:string){
+  login(email:string,password:string){
     return signInWithEmailAndPassword(this.af,email,password)
   }
   
-  
+  signup(email:string,password:string){
+    return createUserWithEmailAndPassword(this.af,email,password)
+  }
+
+  logout(){
+    return signOut(this.af)
+  }
   
 }

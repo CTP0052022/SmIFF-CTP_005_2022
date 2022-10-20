@@ -15,6 +15,7 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideFunctions,getFunctions } from '@angular/fire/functions';
 import { AngularFireAuthGuard, AngularFireAuthGuardModule } from '@angular/fire/compat/auth-guard';
+import{ReactiveFormsModule}from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,10 +30,12 @@ import { AngularFireAuthGuard, AngularFireAuthGuardModule } from '@angular/fire/
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     provideFunctions(() => getFunctions()),
+    
     
   ],
   providers: [],
