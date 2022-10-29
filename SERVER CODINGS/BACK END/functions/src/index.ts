@@ -4,9 +4,7 @@ import * as functions from "firebase-functions";
 
 exports.createUser = functions.auth.user().onCreate((user) => {
   firestore().collection("petrolstation").doc(user.uid).set({
-    Name: user.displayName,
+    uid: user.uid,
     Email: user.email,
-    PetrolTankIOT: firestore().collection("petrolstation").doc().id,
-    PetrolWaterflowIOT: firestore().collection("petrolstation").doc().id,
   });
 });

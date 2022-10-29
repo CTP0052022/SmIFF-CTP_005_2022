@@ -5,7 +5,7 @@
   
   </head> 
   <body>
-    <div class="login-form">
+    <div class="login-form" *ngIf="isLogging">
         <form [formGroup]="LoginForm" (ngSubmit)="onSignin()">
           <h1>Login</h1>
           <div class="content">
@@ -18,12 +18,41 @@
               <a href="#" class="link">Forgot Your Password?</a>
             </div>
             <div class="action">
-                <button >Register</button>
+                <button (click)="isLogging=!isLogging">Register</button>
                 <button type="submit">Sign in</button>
               </div>
             </form>
           </div>
 
-        
+          <div class="login-form" *ngIf="!isLogging">
+            <form [formGroup]="RegisterForm" (ngSubmit)="onRegister()">
+              <h1>Register</h1>
+              <div class="content">
+                <div class="input-field">
+                  <input type="email" placeholder="Email" autocomplete="nope" formControlName="email">
+                </div>
+                <div class="input-field">
+                    <input type="password" placeholder="Password" autocomplete="new-password" formControlName="password">
+                  </div>
+                  <div class="input-field">
+                    <input type="FirstName" placeholder="FirstName" autocomplete="nope" formControlName="firstname">
+                  </div>
+                  <div class="input-field">
+                    <input type="LastName" placeholder="LastName" autocomplete="nope" formControlName="lastname">
+                  </div>
+                  <div class="input-field">
+                    <input type="Username" placeholder="Username" autocomplete="nope" formControlName="username">
+                  </div>
+                  <div class="input-field">
+                    <input type="tel" placeholder="Phone number" autocomplete="nope" formControlName="phonenumber">
+                  </div>
+                  <a href="#" class="link">Forgot Your Password?</a>
+                </div>
+                <div class="action">
+                    <button (click)="isLogging=!isLogging" >Login</button>
+                    <button type="submit">Sign up</button>
+                  </div>
+                </form>
+              </div>
 
     </body>
