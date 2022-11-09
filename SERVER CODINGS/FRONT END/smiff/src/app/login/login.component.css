@@ -7,7 +7,7 @@
   
   body {
     background: #353535;
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
   
   .login-form {
@@ -36,7 +36,7 @@
   .login-form .input-field input {
     font-size: 16px;
     display: block;
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Poppins', sans-serif;
     width: 100%;
     padding: 10px 1px;
     border: 0;
@@ -82,7 +82,7 @@
     width: 100%;
     border: none;
     padding: 18px;
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Poppins', sans-serif;
     cursor: pointer;
     text-transform: uppercase;
     background: #e8e9ec;
