@@ -8,10 +8,13 @@ import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  
 })
+
 export class LoginComponent implements OnInit {
 
+  
   LoginForm!: FormGroup;
   RegisterForm!:FormGroup;
   errormsg="";
@@ -54,10 +57,11 @@ export class LoginComponent implements OnInit {
       "user").catch((e)=>
       console.log(e.message));
   }
-  
-  
-  
 
+  
+  
   ngOnInit(): void {}
 }
+
+
     
