@@ -10,7 +10,7 @@ import {
 import { Router } from '@angular/router';
 import { first, last, Observable, take } from 'rxjs';
 import { emailVerified } from '@angular/fire/compat/auth-guard';
-import { addDoc, CollectionReference, Firestore } from '@angular/fire/firestore';
+import { addDoc, CollectionReference, doc, Firestore, setDoc } from '@angular/fire/firestore';
 import { collection } from '@firebase/firestore';
 import { FIRESTORE_PROVIDER_NAME } from '@angular/fire/firestore/firestore';
 
@@ -18,12 +18,15 @@ import { FIRESTORE_PROVIDER_NAME } from '@angular/fire/firestore/firestore';
   providedIn: 'root',
 })
 export class AuthService {
+  userid="";
    // Save logged in user data
   constructor(
     private af:Auth,
     private afs:Firestore,
-    public router:Router
+    public router:Router,
+    
   ) {
+
     
   }
   login(email:string,password:string){
@@ -34,8 +37,10 @@ export class AuthService {
 
     return createUserWithEmailAndPassword(this.af,email,password).then((result)=>{
       this.setdata(result.user,firstname,lastname,username,phonenumber,role);
+      this.userid=result.user.uid
     })
   }
+  
   setdata(user:any,firstname:string,lastname:string,username:string,phonenumber:string,role:string){
     const userref=collection(this.afs,"users")
     const Userdata:User={
@@ -49,7 +54,7 @@ export class AuthService {
       emailVerified:user.emailVerified,
       role:role
     };
-    addDoc(userref,Userdata).then(docref=>{
+    setDoc(doc(userref,user.uid),Userdata).then(docref=>{
       console.log("Success");
     }).catch(error=>{console.log(error)});
     
