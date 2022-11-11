@@ -1,10 +1,6 @@
-import {firestore} from "firebase-admin";
 import * as functions from "firebase-functions";
-
-
-exports.createUser = functions.auth.user().onCreate((user) => {
-  firestore().collection("petrolstation").doc(user.uid).set({
-    uid: user.uid,
-    Email: user.email,
-  });
+let uno=0;
+exports.createUser = functions.firestore.document("Admin/AP").onCreate(()=>{
+  console.log('Made it to the trigger!');
+  uno= uno+1;
 });
