@@ -30,13 +30,13 @@ export class AuthService {
     return signInWithEmailAndPassword(this.af,email,password)
   }
   
-  signup(email:string,password:string,firstname:string,lastname:string,username:string,phonenumber:string){
+  signup(email:string,password:string,firstname:string,lastname:string,username:string,phonenumber:string,role:string){
 
     return createUserWithEmailAndPassword(this.af,email,password).then((result)=>{
-      this.setdata(result.user,firstname,lastname,username,phonenumber);
+      this.setdata(result.user,firstname,lastname,username,phonenumber,role);
     })
   }
-  setdata(user:any,firstname:string,lastname:string,username:string,phonenumber:string){
+  setdata(user:any,firstname:string,lastname:string,username:string,phonenumber:string,role:string){
     const userref=collection(this.afs,"users")
     const Userdata:User={
       uid:user.uid,
@@ -46,7 +46,8 @@ export class AuthService {
       lastname:lastname,
       phonenumber:phonenumber,
       photoURL:user.photoURL,
-      emailVerified:user.emailVerified
+      emailVerified:user.emailVerified,
+      role:role
     };
     addDoc(userref,Userdata).then(docref=>{
       console.log("Success");

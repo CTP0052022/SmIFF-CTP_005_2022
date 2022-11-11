@@ -8,6 +8,7 @@
     <div class="login-form" *ngIf="isLogging">
         <form [formGroup]="LoginForm" (ngSubmit)="onSignin()">
           <h1>Login</h1>
+          <div class="error" [innerHTML]="errormsg"></div>
           <div class="content">
             <div class="input-field">
               <input type="email" placeholder="Email" autocomplete="nope" formControlName="email">

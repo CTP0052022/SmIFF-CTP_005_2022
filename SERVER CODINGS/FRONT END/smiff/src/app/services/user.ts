@@ -7,4 +7,5 @@ export interface User {
    phonenumber:string;
    photoURL: string;
    emailVerified: boolean;
+   role:string;
 }

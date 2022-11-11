@@ -1,6 +1,7 @@
 import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit} from '@angular/core';
-import { FormBuilder,FormGroup } from '@angular/forms';
+import { user } from '@angular/fire/auth';
+import { FormBuilder,FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   LoginForm!: FormGroup;
   RegisterForm!:FormGroup;
-
+  errormsg="";
   title = 'firebase-angular-auth';
   isSignedIn = false
   isLogging= true
@@ -23,11 +24,11 @@ export class LoginComponent implements OnInit {
     private formbuild:FormBuilder){
       this.LoginForm= this.formbuild.group({
         email: formbuild.control(''),
-        password: formbuild.control(''),
+        password: ['',Validators.required],
       })
       this.RegisterForm= this.formbuild.group({
         email: formbuild.control(''),
-        password: formbuild.control(''),
+        password: ['',Validators.required],
         firstname:formbuild.control(''),
         lastname:formbuild.control(''),
         username:formbuild.control(''),
@@ -37,7 +38,7 @@ export class LoginComponent implements OnInit {
 
   public onSignin(){
     console.log(this.LoginForm.value.email);
-    this.firebaseService.login(this.LoginForm.value.email,this.LoginForm.value.password).then((res:any)=>{console.log((res));this.router.navigate(['/Adminall'])}).catch((e)=>console.log(e.message));
+    this.firebaseService.login(this.LoginForm.value.email,this.LoginForm.value.password).then((res:any)=>{console.log((res));this.router.navigate(['/Adminall'])}).catch((e)=>this.errormsg=e.message);
   }
   
   
@@ -49,7 +50,9 @@ export class LoginComponent implements OnInit {
       this.RegisterForm.value.firstname,
       this.RegisterForm.value.lastname,
       this.RegisterForm.value.username,
-      this.RegisterForm.value.phonenumber).catch((e)=>console.log(e.message));
+      this.RegisterForm.value.phonenumber,
+      "user").catch((e)=>
+      console.log(e.message));
   }
   
   
