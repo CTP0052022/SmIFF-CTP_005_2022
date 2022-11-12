@@ -2,13 +2,12 @@
     <meta charset="UTF-8">
     <title>Simple Login Form Example</title>
     <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap'><link rel="stylesheet" href="./login.component.css">
-  
-  </head> 
+</head> 
   <body>
+    <section class="home-section">
     <div class="login-form" *ngIf="isLogging">
         <form [formGroup]="LoginForm" (ngSubmit)="onSignin()">
           <h1>Login</h1>
-          <div class="error" [innerHTML]="errormsg"></div>
           <div class="content">
             <div class="input-field">
               <input type="email" placeholder="Email" autocomplete="nope" formControlName="email">
@@ -36,10 +35,10 @@
                     <input type="password" placeholder="Password" autocomplete="new-password" formControlName="password">
                   </div>
                   <div class="input-field">
-                    <input type="FirstName" placeholder="FirstName" autocomplete="nope" formControlName="firstname">
+                    <input type="FirstName" placeholder="First Name" autocomplete="nope" formControlName="firstname">
                   </div>
                   <div class="input-field">
-                    <input type="LastName" placeholder="LastName" autocomplete="nope" formControlName="lastname">
+                    <input type="LastName" placeholder="Last Name" autocomplete="nope" formControlName="lastname">
                   </div>
                   <div class="input-field">
                     <input type="Username" placeholder="Username" autocomplete="nope" formControlName="username">
@@ -47,12 +46,13 @@
                   <div class="input-field">
                     <input type="tel" placeholder="Phone number" autocomplete="nope" formControlName="phonenumber">
                   </div>
-                  <div>
-                    <br>
-                  </div>
+
+                </div>
                 <div class="action">
-                    <button (click)="isLogging=!isLogging" >Login</button>
+                    <button (click)="isLogging=!isLogging">Login</button>
                     <button type="submit">Sign up</button>
                   </div>
+                </form>
               </div>
+    
 
