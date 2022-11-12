@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminpetrolComponent } from './adminpetrol/adminpetrol.component';
 import { MainboardComponent } from './dashboard/mainboard/mainboard.component';
+import { UserComponent } from './user/user.component';
 
 
 
@@ -16,6 +17,8 @@ const routes: Routes = [
   {path: 'login',component:LoginComponent },
   {path: 'Adminpetrol',component:AdminpetrolComponent},
   {path: 'adminpetrol',component:AdminpetrolComponent},
+  {path: 'User',component:UserComponent },
+  {path: 'user',component:UserComponent },
   {path: 'Dashboard',loadChildren: ()=>import('./dashboard/dashboard/dashboard.module').then(m=>m.DashboardModule),}
 ];
 
