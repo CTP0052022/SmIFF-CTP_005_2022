@@ -29,9 +29,6 @@ import { MainboardComponent } from './dashboard/mainboard/mainboard.component';
     AdminpetrolComponent,
     UserComponent,
     SignupComponent,
-    UsermanageComponent,
-    PetrolmanageComponent,
-    MainboardComponent
   ],
   imports: [
     BrowserModule,
