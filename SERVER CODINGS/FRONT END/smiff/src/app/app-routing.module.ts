@@ -13,6 +13,9 @@ const routes: Routes = [
   {path: 'Adminall',component:AdminallComponent },
   {path: 'adminall',component:AdminallComponent },
   {path: 'Login',component:LoginComponent },
+  {path: 'login',component:LoginComponent },
+  {path: 'Adminpetrol',component:AdminpetrolComponent},
+  {path: 'adminpetrol',component:AdminpetrolComponent},
   {path: 'Dashboard',loadChildren: ()=>import('./dashboard/dashboard/dashboard.module').then(m=>m.DashboardModule),}
 ];
 
