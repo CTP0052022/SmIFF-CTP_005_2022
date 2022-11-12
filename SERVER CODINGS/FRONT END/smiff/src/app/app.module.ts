@@ -16,6 +16,9 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideFunctions,getFunctions } from '@angular/fire/functions';
 import { AngularFireAuthGuard, AngularFireAuthGuardModule } from '@angular/fire/compat/auth-guard';
 import{ReactiveFormsModule}from '@angular/forms';
+import { UsermanageComponent } from './dashboard/usermanage/usermanage.component';
+import { PetrolmanageComponent } from './dashboard/petrolmanage/petrolmanage.component';
+import { MainboardComponent } from './dashboard/mainboard/mainboard.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import{ReactiveFormsModule}from '@angular/forms';
     AdminallComponent,
     AdminpetrolComponent,
     UserComponent,
-    SignupComponent
+    SignupComponent,
+    UsermanageComponent,
+    PetrolmanageComponent,
+    MainboardComponent
   ],
   imports: [
     BrowserModule,
@@ -35,8 +41,8 @@ import{ReactiveFormsModule}from '@angular/forms';
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     provideFunctions(() => getFunctions()),
-    
-    
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -53,12 +53,12 @@
         </li>
       </ul>
   </div>
-  <section class="home-section">
+  <section class="home-section" [ngClass]="status ? 'notlefttake':'lefttake'">
     <nav>
-      <button class="sidebar-button" (click) ="clickEvent()">
+      <div class="sidebar-button" (click) ="clickEvent()">
         <i class='bx bx-menu sidebarBtn'></i>
         <span class="dashboard">Dashboard</span>
-      </button>
+      </div>
       <div class="search-box">
         <input type="text" placeholder="Search...">
         <i class='bx bx-search' ></i>
@@ -105,43 +105,11 @@
           </div>
           <i class='bx bx-error cart three' ></i>
         </div>
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic">Total Return</div>
-            <div class="number">11,086</div>
-            <div class="indicator">
-              <i class='bx bx-down-arrow-alt down'></i>
-              <span class="text">Down From Today</span>
-            </div>
-          </div>
-          <i class='bx bxs-cart-download cart four' ></i>
-        </div>
+
       </div>
+      <router-outlet></router-outlet>
 
-      <div class="sales-boxes">
-        <div class="recent-sales box">
-          <div class="title">Messages and Feedback</div>
-          <div class="sales-details">
 
-          </div>
-          <div class="button">
-            <a href="#">See All</a>
-          </div>
-        </div>
-        <div class="top-sales box">
-          <div class="title">Notifications</div>
-          <ul class="top-sales-details">
-            <li>
-            <a href="#">
-              <!--<img src="images/sunglasses.jpg" alt="">-->
-              <span class="product">Vuitton Sunglasses</span>
-            </a>
-            <span class="price">$1107</span>
-          </li>
-
-          </ul>
-        </div>
-      </div>
     </div>
   </section>
 
