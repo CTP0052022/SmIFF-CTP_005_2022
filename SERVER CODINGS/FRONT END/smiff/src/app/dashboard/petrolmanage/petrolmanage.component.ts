@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { collectionData, Firestore } from '@angular/fire/firestore';
+import { collection } from '@firebase/firestore';
+import { Observable } from 'rxjs';
+import {MatTableModule} from '@angular/material/table';
+
+import { User } from 'src/app/services/user';
 
 @Component({
   selector: 'app-petrolmanage',
@@ -7,9 +13,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PetrolmanageComponent implements OnInit {
 
-  constructor() { }
+  user:Observable<User[]>
+  role:string=''
+  constructor(private afs:Firestore) {
+    const docs=collection(this.afs,'petrolstation/')
+    this.user=collectionData(docs) as Observable<User[]>
+    console.log(this.user.forEach(doc=>{
+      console.log(doc)
+    }))
+    }
+
+
+
+
 
   ngOnInit(): void {
   }
 
+
+
 }
+

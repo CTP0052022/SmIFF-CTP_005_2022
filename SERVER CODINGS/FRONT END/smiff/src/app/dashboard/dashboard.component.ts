@@ -34,6 +34,7 @@ export class DashboardComponent implements OnInit {
   statusLink: boolean = false;
   uno!: string;
   ucount!:number;
+  pcount!: number;
   clickEvent() {
     this.status = !this.status;
     //this.statusLink = !this.statusLink;
@@ -50,10 +51,10 @@ export class DashboardComponent implements OnInit {
     this.uno=as.userid;
     console.log(this.uno);
     collectionSnapshots(collection(db,'users')).subscribe(res=>{
-      this.ucount=res.length-1;
+      this.ucount=res.length;
     })
-    collectionSnapshots(collection(db,'users')).subscribe(res=>{
-      QuerySnapshot
+    collectionSnapshots(collection(db,'petrolstation')).subscribe(res=>{
+      this.pcount=res.length;
     })
   }
 
