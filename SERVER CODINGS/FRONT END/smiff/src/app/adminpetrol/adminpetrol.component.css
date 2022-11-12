@@ -11,30 +11,85 @@
     display: contents;
     justify-content: space-between;
     min-height: 100vh;
+    height: 100%;
     transition: all 0.5s ease;
     font-family: 'Poppins', sans-serif;
+  }
+  .home-section .dashboard{
+    font-size: 24px;
+    font-weight: 500;
+  }
+  .home-section nav{
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    padding: 0 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease;
+  }
+
+  .home-section nav .profile-details{
+    display: flex;
+    align-items: center;
+    background: #F5F6FA;
+    border: 2px solid #EFEEF1;
+    border-radius: 6px;
+    height: 50px;
+    min-width: 190px;
+    padding: 0 15px 0 2px;
+  }
+  nav .profile-details img{
+    height: 40px;
+    width: 40px;
+    border-radius: 6px;
+    object-fit: cover;
+  }
+  nav .profile-details .admin_name{
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+    margin: 0 10px;
+    white-space: nowrap;
+  }
+  nav .profile-details i{
+    font-size: 25px;
+    color: #333;
+  }
+  .home-section .home-content{
+    position: relative;
+    padding-top: 104px;
   }
   .home-section .home-content{
     position: relative;
     padding-top: 104px;
   }
   .home-content .overview-boxes{
+    padding-top: 104px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     padding: 0 20px;
     margin-bottom: 26px;
+    height: 800px;
   }
   .overview-boxes .box{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: calc(100% / 3 - 15px);
+    width: fit-content;
+    height: fit-content;
     background: #fff;
     padding: 15px 14px;
     border-radius: 12px;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    box-shadow:0 -1px 10px 5px rgba(0,0,0,0.1);
+    padding-bottom: 30px;
   }
   .overview-boxes .box-topic{
     font-size: 20px;
