@@ -80,6 +80,30 @@
     border-radius: 12px;
     margin: -10px 0 0 6px;
   }
+  .home-content .box .cart2{
+    display: inline-block;
+    font-size: 32px;
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: #2BD47D;
+    background: #C0F2D8;
+    border-radius: 12px;
+    margin: -10px 0 0 6px;
+  }
+  .home-content .box .cart3{
+    display: inline-block;
+    font-size: 32px;
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: #ffc233;
+    background: #ffe8b3;
+    border-radius: 12px;
+    margin: -10px 0 0 6px;
+  }
   .left-side{
     display: flex;
     flex-direction: column;
