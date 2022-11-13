@@ -26,7 +26,7 @@
 }
 .sidebar .logo-details{
   height: 80px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
 }
 .sidebar .logo-details i{
@@ -40,7 +40,8 @@
   color: #fff;
   font-size: 16px;
   font-weight: 500;
-  text-align: center
+  text-align: center;
+  padding-left: 10px;
 }
 .sidebar .nav-links{
   margin-top: 10px;
@@ -119,6 +120,7 @@
   align-items: center;
   font-size: 24px;
   font-weight: 500;
+  margin-left: 10px;
 }
 nav .sidebar-button i{
   font-size: 35px;
@@ -178,7 +180,7 @@ nav .profile-details i{
   color: #333;
 }
 .home-section .home-content{
-  position: relative;
+  position: sticky;
   padding-top: 104px;
 }
 .home-content .overview-boxes{
@@ -187,7 +189,7 @@ nav .profile-details i{
   justify-content:space-evenly;
   flex-wrap: wrap;
   margin-bottom: 26px;
-  width: 100%;
+  width: 80%;
   height: max-content;
 }
 .overview-boxes .box{
