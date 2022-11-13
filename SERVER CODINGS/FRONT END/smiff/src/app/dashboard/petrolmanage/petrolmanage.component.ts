@@ -12,7 +12,7 @@ import { User } from 'src/app/services/user';
 })
 export class PetrolmanageComponent implements OnInit {
 
-  user:Observable<User[]>
+  user:Observable<any[]>
   role:string=''
   constructor(private afs:Firestore) {
     const docs=collection(this.afs,'petrolstations')
