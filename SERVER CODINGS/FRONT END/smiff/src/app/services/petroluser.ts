@@ -1,7 +1,8 @@
 export interface Petroluser {
     uid: string;
     email: string;
-    displayName: string;
-    photoURL: string;
+    Name: string;
+    phonenumber:string;
+    Location: string;
     emailVerified: boolean;
 }

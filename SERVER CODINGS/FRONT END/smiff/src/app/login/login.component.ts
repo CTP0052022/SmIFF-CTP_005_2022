@@ -1,8 +1,5 @@
-import { query } from '@angular/animations';
-import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit} from '@angular/core';
-import { user } from '@angular/fire/auth';
-import { collection, docData, Firestore, getDoc, getDocs } from '@angular/fire/firestore';
+import { Firestore, getDoc } from '@angular/fire/firestore';
 import { FormBuilder,FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { doc } from '@firebase/firestore';

@@ -16,7 +16,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideFunctions,getFunctions } from '@angular/fire/functions';
 import{ReactiveFormsModule}from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AddpetrolComponent } from './dashboard/addpetrol/addpetrol.component';
+import { LoginpetrolComponent } from './loginpetrol/loginpetrol.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +27,7 @@ import { AddpetrolComponent } from './dashboard/addpetrol/addpetrol.component';
     AdminpetrolComponent,
     UserComponent,
     SignupComponent,
+    LoginpetrolComponent,
   ],
   imports: [
     BrowserModule,

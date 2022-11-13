@@ -4,16 +4,32 @@
         <div class="recent-sales box">
           <div class="title">Add Fuel Station</div>
           <br>
-          <div class="sales-details">
+          <div class="sales-details" >
+            <form [formGroup]="stationregister" (ngsubmit)="onpetreg()">
             <div class="input-field">
-                <input type="text" placeholder="Station Admin Name" autocomplete="nope" formControlName="">
+                <input type="text" placeholder="Station Name" autocomplete="nope" formControlName="SName">
             </div>
             <div class="input-field">
-                <input type="text" placeholder="Location" autocomplete="nope" formControlName="">
+                <input type="text" placeholder="Station Admin Name" autocomplete="nope" formControlName="SAName">
             </div>
             <div class="input-field">
-                <input type="password" placeholder="password" autocomplete="nope" formControlName="">
+                <input type="text" placeholder="Location" autocomplete="nope" formControlName="email">
+            </div>
+            <div class="input-field">
+                <input type="password" placeholder="password" autocomplete="nope" formControlName="password">
+            </div>
+            <div class="input-field">
+                <input type="text" placeholder="Phone number" autocomplete="nope" formControlName="Phonenumber">
+            </div>
+            <div class="input-field">
+                <input type="text" placeholder="Location" autocomplete="nope" formControlName="Location">
             </div>
             <div class="button">
-                <a href="">Add Station</a>
+                <button type="submit">Add Station</button>
               </div>
+            </form>
+          </div>
+        </div>
+    </div>
+    </div>
+</div>

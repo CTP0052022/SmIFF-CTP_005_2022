@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { collection, collectionData, Firestore, query, where } from '@angular/fire/firestore';
+import { map, Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-user',
@@ -6,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
+  showvalue=false
+  itm!: Observable<any[]>;
+  id:any
+  constructor(public afs:Firestore) {
 
-  constructor() { }
+  }
 
+  openNav(id:string){
+    this.itm=(collectionData(query(collection(this.afs,'petrolstations'),where('Name','==',id)),{idField:'id'}))as Observable<any[]>
+    this.showvalue=true
+  }
   ngOnInit(): void {
   }
 

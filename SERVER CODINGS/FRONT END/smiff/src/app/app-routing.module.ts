@@ -7,6 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminpetrolComponent } from './adminpetrol/adminpetrol.component';
 import { MainboardComponent } from './dashboard/mainboard/mainboard.component';
 import { UserComponent } from './user/user.component';
+import { LoginpetrolComponent } from './loginpetrol/loginpetrol.component';
 
 
 
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path: 'adminpetrol',component:AdminpetrolComponent},
   {path: 'User',component:UserComponent },
   {path: 'user',component:UserComponent },
-  {path: 'Dashboard',loadChildren: ()=>import('./dashboard/dashboard/dashboard.module').then(m=>m.DashboardModule),}
+  {path: 'Dashboard',loadChildren: ()=>import('./dashboard/dashboard/dashboard.module').then(m=>m.DashboardModule),},
+  {path:'newpetrol',component:LoginpetrolComponent}
 ];
 
 

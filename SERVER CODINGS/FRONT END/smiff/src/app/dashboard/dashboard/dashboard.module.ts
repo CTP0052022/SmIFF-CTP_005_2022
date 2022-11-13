@@ -7,6 +7,7 @@ import { UserComponent } from 'src/app/user/user.component';
 import { PetrolmanageComponent } from '../petrolmanage/petrolmanage.component';
 import { UsermanageComponent } from '../usermanage/usermanage.component';
 import { AddpetrolComponent } from '../addpetrol/addpetrol.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -14,11 +15,12 @@ import { AddpetrolComponent } from '../addpetrol/addpetrol.component';
     MainboardComponent,
     UsermanageComponent,
     PetrolmanageComponent,
-    AddpetrolComponent
+    AddpetrolComponent,
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class DashboardModule { }

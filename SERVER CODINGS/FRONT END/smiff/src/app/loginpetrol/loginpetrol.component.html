@@ -1,0 +1,30 @@
+<section class="home-section">
+        <div class="login-form" >
+            <form [formGroup]="stationregister" (ngSubmit)="onpetreg()">
+              <h1>Register</h1>
+              <div class="content">
+                <div class="input-field">
+                  <input type="text" placeholder="Station Name" autocomplete="nope" formControlName="SName">
+                </div>
+                <div class="input-field">
+                    <input type="text" placeholder="Station Admin Name" autocomplete="nope" formControlName="SAName">
+                  </div>
+                  <div class="input-field">
+                    <input type="email" placeholder="email" autocomplete="nope" formControlName="email">
+                  </div>
+                  <div class="input-field">
+                    <input type="password" placeholder="password" autocomplete="nope" formControlName="password">
+                  </div>
+                  <div class="input-field">
+                    <input type="tel" placeholder="Phonenumber" autocomplete="nope" formControlName="Phonenumber">
+                  </div>
+                  <div class="input-field">
+                    <input type="text" placeholder="location" autocomplete="nope" formControlName="Location">
+                  </div>
+
+                </div>
+                <div class="action">
+                    <button type="submit">Sign up</button>
+                  </div>
+                </form>
+              </div>

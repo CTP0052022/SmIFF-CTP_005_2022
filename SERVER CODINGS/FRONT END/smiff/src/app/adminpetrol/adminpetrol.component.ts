@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Auth, authState, user } from '@angular/fire/auth';
-import { collection, collectionData, doc, docData, Firestore, getDoc, where } from '@angular/fire/firestore';
+import { collection, collectionData, doc, docData, Firestore, getDoc, query, where } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { getAuth } from '@firebase/auth';
 import { Observable } from 'rxjs';
@@ -19,14 +19,9 @@ export class AdminpetrolComponent implements OnInit {
   public uid:any
   constructor(public afs:Firestore,public af:Auth, public router:Router) {
   this.af.onAuthStateChanged(user =>{
-    this.uid=user?.uid
+    console.log(this.uid=user?.uid)
     this.retruuid(this.uid)
   })
-  /*ollectionData(collection(this.afs,'users'),ref=>{where()}).forEach(users=>{
-
-      console.log(users)
-
-  })*/
 }
 
 retruuid(uid2:any){
@@ -34,7 +29,7 @@ retruuid(uid2:any){
   this.redirector(this.uid)
 }
  async redirector(uid:any){
-  const docref = await doc(this.afs,'Admin',uid)
+  const docref = await doc(this.afs,'petrolstations',uid)
       const docy=await getDoc(docref)
       if(!docy.exists()){
         this.router.navigate(['/Login'])
@@ -45,7 +40,7 @@ retruuid(uid2:any){
 
         })
         const docref3 = await doc(this.afs,'petrolfuelflow',uid)
-        docData(docref2).forEach(user=>{
+        docData(docref3).forEach(user=>{
           this.pft=user
 
         })

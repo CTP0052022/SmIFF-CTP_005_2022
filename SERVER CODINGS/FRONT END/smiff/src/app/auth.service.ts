@@ -1,7 +1,7 @@
 import { Injectable, NgZone } from '@angular/core';
 
 import {User} from './services/user';
-import { Auth,AuthInstances,authState,createUserWithEmailAndPassword,signInWithEmailAndPassword, signOut, user} from '@angular/fire/auth';
+import { Auth,AuthInstances,authState,createUserWithEmailAndPassword,getAuth,signInWithEmailAndPassword, signOut, user} from '@angular/fire/auth';
 import {
   AngularFirestore,
   AngularFirestoreCollection,
@@ -13,6 +13,7 @@ import { emailVerified } from '@angular/fire/compat/auth-guard';
 import { addDoc, CollectionReference, doc, Firestore, getDoc, setDoc } from '@angular/fire/firestore';
 import { collection } from '@firebase/firestore';
 import { FIRESTORE_PROVIDER_NAME } from '@angular/fire/firestore/firestore';
+import { Petroluser } from './services/petroluser';
 
 @Injectable({
   providedIn: 'root',
@@ -43,7 +44,7 @@ export class AuthService {
   }
 
   setdata(user:any,firstname:string,lastname:string,username:string,phonenumber:string,role:string){
-    const userref=collection(this.afs,"Admin")
+    const userref=collection(this.afs,"users")
     const Userdata:User={
       uid:user.uid,
       email:user.email,
@@ -55,6 +56,45 @@ export class AuthService {
       emailVerified:user.emailVerified
     };
     setDoc(doc(userref,user.uid),Userdata).then(docref=>{
+      console.log("Success");
+    }).catch(error=>{console.log(error)});
+  }
+  signuppet(email:string,password:string,name:string,phonenumber:string,SAname:string,Location:string){
+
+    return createUserWithEmailAndPassword(this.af,email,password).then((result)=>{
+      this.setpetdata(result.user,name,phonenumber,SAname,Location);
+
+    })
+  }
+  setpetdata(user:any,name:string,SAname:string,phonenumber:string,Location:string){
+    flow:Number
+    tank:Number
+    const userref=collection(this.afs,"petrolstations")
+    const Userdata:Petroluser={
+      uid:user.uid,
+      email:user.email,
+      Name:name,
+      phonenumber:phonenumber,
+      Location:Location,
+      emailVerified:user.emailVerified
+    };
+    const petfloref=collection(this.afs,"petrolfuelflow")
+    const pettankref=collection(this.afs,"petrolfuletank")
+    const petflow:any={
+      flow:0,
+      name:name
+    }
+    const pettank:any={
+      tank:0,
+      name:name
+    }
+    setDoc(doc(userref,user.uid),Userdata).then(docref=>{
+      console.log("Success");
+    }).catch(error=>{console.log(error)});
+    setDoc(doc(petfloref,user.uid),petflow).then(docref=>{
+      console.log("Success");
+    }).catch(error=>{console.log(error)});
+    setDoc(doc(pettankref,user.uid),pettank).then(docref=>{
       console.log("Success");
     }).catch(error=>{console.log(error)});
 

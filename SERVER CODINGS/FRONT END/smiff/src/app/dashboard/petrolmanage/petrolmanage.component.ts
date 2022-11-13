@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { collectionData, Firestore } from '@angular/fire/firestore';
 import { collection } from '@firebase/firestore';
 import { Observable } from 'rxjs';
-import {MatTableModule} from '@angular/material/table';
 
 import { User } from 'src/app/services/user';
 

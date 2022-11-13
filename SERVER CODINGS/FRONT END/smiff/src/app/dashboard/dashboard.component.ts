@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger,state,style,transition,animate } from '@angular/animations';
-import{AngularFirestore}from '@angular/fire/compat/firestore'
 import { AuthService } from '../auth.service';
-import { collection, collectionData, CollectionReference, collectionSnapshots, doc, docData, DocumentData, Firestore, getDoc } from '@angular/fire/firestore';
-import { collectionGroup, query, QueryDocumentSnapshot, queryEqual, QuerySnapshot, where } from '@firebase/firestore';
-import { Auth, user } from '@angular/fire/auth';
+import { collection, collectionSnapshots, doc, Firestore, getDoc } from '@angular/fire/firestore';
+import { Auth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 
 @Component({
@@ -48,7 +46,7 @@ export class DashboardComponent implements OnInit {
       this.statusLink = true;
     }
   }
-  constructor(private as:Auth,private db:Firestore,private router:Router) {
+  constructor(private as:Auth,private db:Firestore,private router:Router,public afs:AuthService) {
     this.as.onAuthStateChanged(user =>{
       this.redirector(user?.uid)
     })
@@ -69,13 +67,17 @@ export class DashboardComponent implements OnInit {
       }
     }
 
+  logout(){
+    this.afs.logout()
+    this.router.navigate(['/Login'])
+  }
+
+
   ngOnInit(): void {
   }
 
 }
 
 
-function count(arg0: CollectionReference<DocumentData>): any {
-  throw new Error('Function not implemented.');
-}
+
 
