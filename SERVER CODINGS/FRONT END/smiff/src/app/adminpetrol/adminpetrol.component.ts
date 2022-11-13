@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Auth, authState, user } from '@angular/fire/auth';
-import { doc, docData, Firestore, getDoc } from '@angular/fire/firestore';
+import { collection, collectionData, doc, docData, Firestore, getDoc, where } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { getAuth } from '@firebase/auth';
 import { Observable } from 'rxjs';
@@ -22,8 +22,11 @@ export class AdminpetrolComponent implements OnInit {
     this.uid=user?.uid
     this.retruuid(this.uid)
   })
+  /*ollectionData(collection(this.afs,'users'),ref=>{where()}).forEach(users=>{
 
+      console.log(users)
 
+  })*/
 }
 
 retruuid(uid2:any){

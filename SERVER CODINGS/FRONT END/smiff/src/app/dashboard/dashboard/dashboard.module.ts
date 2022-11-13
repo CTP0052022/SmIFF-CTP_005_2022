@@ -6,13 +6,15 @@ import { MainboardComponent } from '../mainboard/mainboard.component';
 import { UserComponent } from 'src/app/user/user.component';
 import { PetrolmanageComponent } from '../petrolmanage/petrolmanage.component';
 import { UsermanageComponent } from '../usermanage/usermanage.component';
+import { AddpetrolComponent } from '../addpetrol/addpetrol.component';
 
 
 @NgModule({
   declarations: [
     MainboardComponent,
     UsermanageComponent,
-    PetrolmanageComponent
+    PetrolmanageComponent,
+    AddpetrolComponent
   ],
   imports: [
     CommonModule,

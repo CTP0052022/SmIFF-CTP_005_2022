@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UserComponent } from 'src/app/user/user.component';
+import { AddpetrolComponent } from '../addpetrol/addpetrol.component';
 import { DashboardComponent } from '../dashboard.component';
 import { MainboardComponent } from '../mainboard/mainboard.component';
 import { PetrolmanageComponent } from '../petrolmanage/petrolmanage.component';
@@ -20,6 +21,9 @@ const routes: Routes = [
       },
       {
         path:'',redirectTo:'overview',pathMatch:'full'
+      },
+      {
+        path:'addpetrol',component:AddpetrolComponent
       }
     ]
   }
