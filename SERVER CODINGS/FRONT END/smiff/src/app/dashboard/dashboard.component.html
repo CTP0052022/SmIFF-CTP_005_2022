@@ -33,6 +33,12 @@
           </a>
         </li>
         <li>
+          <a [routerLink]="'addpetrol'" routerLinkActive="active">
+            <i class='bx bx-user-plus'></i>
+            <span class="links_name">Add Fuel Station</span>
+          </a>
+        </li>
+        <li>
           <a>
             <i class='bx bx-message' ></i>
             <span class="links_name">Messages & Feedback</span>
@@ -58,10 +64,6 @@
       <div class="sidebar-button" (click) ="clickEvent()">
         <i class='bx bx-menu sidebarBtn'></i>
         <span class="dashboard">Dashboard</span>
-      </div>
-      <div class="search-box">
-        <input type="text" placeholder="Search...">
-        <i class='bx bx-search' ></i>
       </div>
       <div class="profile-details">
         <!--<img src="images/profile.jpg" alt="">-->

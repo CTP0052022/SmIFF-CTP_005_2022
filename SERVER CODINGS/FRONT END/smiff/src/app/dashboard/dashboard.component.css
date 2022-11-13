@@ -126,37 +126,7 @@ nav .sidebar-button i{
   font-size: 35px;
   margin-right: 10px;
 }
-.home-section nav .search-box{
-  height: 50px;
-  max-width: 550px;
-  width: 100%;
-  margin: 15px 20px;
-}
-nav .search-box input{
-  height: 100%;
-  width: 100%;
-  outline: none;
-  background: #F5F6FA;
-  border: 2px solid #EFEEF1;
-  border-radius: 6px;
-  font-size: 18px;
-  padding: 0 15px;
-}
-nav .search-box .bx-search{
-  position: absolute;
-  height: 40px;
-  width: 40px;
-  background: #2697FF;
-  right: 5px;
-  top: 50%;
-  transform: translateY(-50%);
-  border-radius: 4px;
-  line-height: 40px;
-  text-align: center;
-  color: #fff;
-  font-size: 22px;
-  transition: all 0.4 ease;
-}
+
 .home-section nav .profile-details{
   display: flex;
   align-items: center;
@@ -166,6 +136,7 @@ nav .search-box .bx-search{
   height: 50px;
   min-width: 190px;
   margin: 15px 20px;
+  margin-left: 60%;
 }
 
 nav .profile-details .admin_name{
@@ -282,7 +253,7 @@ nav .profile-details i{
   height: 100%;
 }
 .home-content .sales-boxes .sales-details{
-  display: inline;
+  display: grid;
   height: 100%;
   width: 100%;
 }
@@ -290,6 +261,25 @@ nav .profile-details i{
   font-size: 24px;
   font-weight: 500;
   /* margin-bottom: 10px; */
+}
+.sales-boxes .sales-details .input-field{
+  font-size: 16px;
+  display: flex;
+  font-family: 'Poppins', sans-serif;
+  width: 50%;
+  padding: 10px 1px;
+  border: 0;
+  border-bottom: 1px solid #747474;
+  outline: none;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+input, input:focus{
+  border-width: 0px;
+  outline:0;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
 }
 .sales-boxes .sales-details th{
   font-size: 20px;
