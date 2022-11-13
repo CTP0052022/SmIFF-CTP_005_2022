@@ -40,4 +40,28 @@
         </ng-container>
       </tbody>
     </table>
+    <table>
+      <thead>
+        <th>Fuel Level</th>
+      </thead>
+      <tbody>
+        <ng-container *ngIf="pt">
+          <tr *ngFor="let item of pt|async">
+            <td>{{item.tank}}</td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+    <table>
+      <thead>
+        <th>Fuel Flow</th>
+      </thead>
+      <tbody>
+        <ng-container *ngIf="pf">
+          <tr *ngFor="let item of pf|async">
+            <td>{{item.flow}}</td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
     </div>

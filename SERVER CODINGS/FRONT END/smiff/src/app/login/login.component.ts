@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
       if(docy.exists()){
         this.router.navigate(['/Dashboard'])
       }else{
-        const docref = await doc(this.afs,'petrolstation',res.user.uid)
+        const docref = await doc(this.afs,'petrolstations',res.user.uid)
         const docy=await getDoc(docref)
         if(docy.exists()){
           this.router.navigate(['/adminpetrol'])

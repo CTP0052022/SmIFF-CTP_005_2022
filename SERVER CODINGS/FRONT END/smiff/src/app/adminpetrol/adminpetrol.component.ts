@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Auth, authState, user } from '@angular/fire/auth';
-import { collection, collectionData, doc, docData, Firestore, getDoc, query, where } from '@angular/fire/firestore';
+import { Auth } from '@angular/fire/auth';
+import { doc, docData, Firestore, getDoc } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { getAuth } from '@firebase/auth';
-import { Observable } from 'rxjs';
 interface pft{
   petroltank:any
 }
@@ -17,11 +15,13 @@ export class AdminpetrolComponent implements OnInit {
   public pt:any
   public pft:any
   public uid:any
-  constructor(public afs:Firestore,public af:Auth, public router:Router) {
+  constructor(public afs:Firestore,public af:Auth, public router:Router ) {
   this.af.onAuthStateChanged(user =>{
+
     console.log(this.uid=user?.uid)
     this.retruuid(this.uid)
   })
+
 }
 
 retruuid(uid2:any){

@@ -11,6 +11,8 @@ import { map, Observable } from 'rxjs';
 export class UserComponent implements OnInit {
   showvalue=false
   itm!: Observable<any[]>;
+  pt!:Observable<any[]>;
+  pf!:Observable<any[]>;
   id:any
   constructor(public afs:Firestore) {
 
@@ -18,6 +20,8 @@ export class UserComponent implements OnInit {
 
   openNav(id:string){
     this.itm=(collectionData(query(collection(this.afs,'petrolstations'),where('Name','==',id)),{idField:'id'}))as Observable<any[]>
+    this.pt=(collectionData(query(collection(this.afs,'petrolfuletank'),where('name','==',id)),{idField:'id'}))as Observable<any[]>
+    this.pf=(collectionData(query(collection(this.afs,'petrolfuelflow'),where('name','==',id)),{idField:'id'}))as Observable<any[]>
     this.showvalue=true
   }
   ngOnInit(): void {
