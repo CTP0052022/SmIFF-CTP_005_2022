@@ -53,7 +53,7 @@ export class DashboardComponent implements OnInit {
     collectionSnapshots(collection(db,'users')).subscribe(res=>{
       this.ucount=res.length;
     })
-    collectionSnapshots(collection(db,'petrolstation')).subscribe(res=>{
+    collectionSnapshots(collection(db,'petrolstations')).subscribe(res=>{
       this.pcount=res.length;
     })
   }

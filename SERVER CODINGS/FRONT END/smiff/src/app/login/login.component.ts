@@ -47,15 +47,24 @@ export class LoginComponent implements OnInit {
     console.log(this.LoginForm.value.email);
     this.firebaseService.login(this.LoginForm.value.email,this.LoginForm.value.password).then(async (res:any)=>{
       console.log((res));
-      const docref = await doc(this.afs,'users',res.user.uid)
+      const docref = await doc(this.afs,'Admin',res.user.uid)
       const docy=await getDoc(docref)
-      console.log('admin/${res.user.uid}')
-      if(!docy.exists()){
-        console.log("hi")
+      if(docy.exists()){
+        this.router.navigate(['/Dashboard'])
       }else{
-        console.log(docref)
-      }
-      this.router.navigate(['/Adminall'])}).catch((e)=>this.errormsg=e.message);
+        const docref = await doc(this.afs,'petrolstation',res.user.uid)
+        const docy=await getDoc(docref)
+        if(docy.exists()){
+          this.router.navigate(['/adminpetrol'])
+        }else{
+          const docref = await doc(this.afs,'petrolstation',res.user.uid)
+          const docy=await getDoc(docref)
+          if(docy.exists()){
+            this.router.navigate(['/adminpetrol'])
+          }
+        }
+      };
+       }).catch((e)=>this.errormsg=e.message)
   }
 
 
@@ -71,8 +80,6 @@ export class LoginComponent implements OnInit {
       "user").catch((e)=>
       console.log(e.message));
   }
-
-
 
   ngOnInit(): void {}
 }

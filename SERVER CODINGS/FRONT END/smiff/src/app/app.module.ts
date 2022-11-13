@@ -14,13 +14,8 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideFunctions,getFunctions } from '@angular/fire/functions';
-import { AngularFireAuthGuard, AngularFireAuthGuardModule } from '@angular/fire/compat/auth-guard';
 import{ReactiveFormsModule}from '@angular/forms';
-import { UsermanageComponent } from './dashboard/usermanage/usermanage.component';
-import { PetrolmanageComponent } from './dashboard/petrolmanage/petrolmanage.component';
-import { MainboardComponent } from './dashboard/mainboard/mainboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -41,7 +36,6 @@ import { MatTableModule } from '@angular/material/table';
     provideFirestore(() => getFirestore()),
     provideFunctions(() => getFunctions()),
     BrowserAnimationsModule,
-    MatTableModule
 
 
   ],
