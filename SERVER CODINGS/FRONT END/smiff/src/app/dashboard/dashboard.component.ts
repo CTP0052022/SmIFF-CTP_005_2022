@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { trigger,state,style,transition,animate } from '@angular/animations';
 import{AngularFirestore}from '@angular/fire/compat/firestore'
 import { AuthService } from '../auth.service';
-import { collection, collectionData, CollectionReference, collectionSnapshots, DocumentData, Firestore } from '@angular/fire/firestore';
+import { collection, collectionData, CollectionReference, collectionSnapshots, doc, docData, DocumentData, Firestore, getDoc } from '@angular/fire/firestore';
 import { collectionGroup, query, QueryDocumentSnapshot, queryEqual, QuerySnapshot, where } from '@firebase/firestore';
-import { user } from '@angular/fire/auth';
+import { Auth, user } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -47,20 +48,26 @@ export class DashboardComponent implements OnInit {
       this.statusLink = true;
     }
   }
-  constructor(private as:AuthService,private db:Firestore) {
-    this.uno=as.userid;
-    console.log(this.uno);
-    collectionSnapshots(collection(db,'users')).subscribe(res=>{
+  constructor(private as:Auth,private db:Firestore,private router:Router) {
+    this.as.onAuthStateChanged(user =>{
+      this.redirector(user?.uid)
+    })
+        collectionSnapshots(collection(db,'users')).subscribe(res=>{
       this.ucount=res.length;
     })
     collectionSnapshots(collection(db,'petrolstations')).subscribe(res=>{
       this.pcount=res.length;
-    })
-  }
+    })}
 
-  getTotalUsers(): void {
 
-  }
+
+  async redirector(uid:any){
+  const docref = await doc(this.db, 'Admin', uid)
+    const docy=await getDoc(docref)
+      if(!docy.exists()){
+        this.router.navigate(['/Login'])
+      }
+    }
 
   ngOnInit(): void {
   }
