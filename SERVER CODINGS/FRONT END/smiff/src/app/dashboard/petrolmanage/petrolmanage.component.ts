@@ -16,7 +16,7 @@ export class PetrolmanageComponent implements OnInit {
   user:Observable<User[]>
   role:string=''
   constructor(private afs:Firestore) {
-    const docs=collection(this.afs,'petrolstation/')
+    const docs=collection(this.afs,'Admin/')
     this.user=collectionData(docs) as Observable<User[]>
     console.log(this.user.forEach(doc=>{
       console.log(doc)

@@ -297,11 +297,11 @@ nav .profile-details i{
   font-weight: 500;
   /* margin-bottom: 10px; */
 }
-.sales-boxes .sales-details li.topic{
+.sales-boxes .sales-details th{
   font-size: 20px;
   font-weight: 500;
 }
-.sales-boxes .sales-details li{
+.sales-boxes .sales-details td{
   list-style: none;
   margin: 8px 0;
 }

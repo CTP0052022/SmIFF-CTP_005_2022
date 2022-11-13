@@ -1,3 +1,4 @@
+import { query } from '@angular/animations';
 import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit} from '@angular/core';
 import { user } from '@angular/fire/auth';
@@ -46,11 +47,13 @@ export class LoginComponent implements OnInit {
     console.log(this.LoginForm.value.email);
     this.firebaseService.login(this.LoginForm.value.email,this.LoginForm.value.password).then(async (res:any)=>{
       console.log((res));
-      const docref = doc(collection(this.afs,'users'),res.user.uid)
-      if(!docref){
+      const docref = await doc(this.afs,'users',res.user.uid)
+      const docy=await getDoc(docref)
+      console.log('admin/${res.user.uid}')
+      if(!docy.exists()){
         console.log("hi")
       }else{
-        console.log('found')
+        console.log(docref)
       }
       this.router.navigate(['/Adminall'])}).catch((e)=>this.errormsg=e.message);
   }

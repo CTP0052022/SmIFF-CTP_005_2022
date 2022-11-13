@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Auth, authState, user } from '@angular/fire/auth';
+import { Firestore } from '@angular/fire/firestore';
+import { getAuth } from '@firebase/auth';
 
 @Component({
   selector: 'app-adminpetrol',
@@ -7,7 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminpetrolComponent implements OnInit {
 
-  constructor() { }
+  uid:string;
+  constructor(private afs:Firestore,private af:Auth) {
+    this.uid=this.af.currentUser?.uid as string
+    console.log(authState(this.af))
+   }
+
+
 
   ngOnInit(): void {
   }
