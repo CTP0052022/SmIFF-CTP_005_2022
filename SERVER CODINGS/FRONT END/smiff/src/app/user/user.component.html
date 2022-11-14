@@ -23,7 +23,7 @@
         <div class="action"><button>Malabe</button></div>
         <div class="action"><button>Battaramulla</button></div>
     </div>
-    <div *ngIf="showvalue">
+    <div *ngIf="showvalue" class="form2">
     <table>
       <thead>
         <th>Name</th>
@@ -33,9 +33,9 @@
       <tbody>
         <ng-container *ngIf="itm">
           <tr *ngFor="let item of itm|async">
-            <td>{{item.Name}}</td>
-            <td>{{item.phonenumber}}</td>
-            <td>{{item.Location}}</td>
+            <td>{{item.Name}} </td>
+            <td>{{item.phonenumber}}  </td>
+            <td>{{item.Location}} </td>
           </tr>
         </ng-container>
       </tbody>

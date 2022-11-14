@@ -141,12 +141,27 @@
     min-height: auto;
     width: 800px;
     margin: 65px auto;
-    display: -webkit-box;
+    margin-top: 100px;
     display: flex;
     padding: 18px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
             flex-direction: column;
+    border-radius: 12px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  }
+  .form2 {
+    position: relative;
+    background: #fff;
+    min-height: auto;
+    width: 800px;
+    margin: 65px auto;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 18px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: row;
     border-radius: 12px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   }
@@ -169,6 +184,7 @@
     letter-spacing: 0.2px;
     outline: 0;
     -webkit-transition: all .3s;
+    border-radius: 12px;
     transition: all .3s;
   }
   .form .action button:hover {
@@ -199,7 +215,15 @@
   font-size: 36px;
   margin-left: 50px;
 }
-
+table{
+  justify-content: space-evenly;
+}
+table td{
+  padding-right: 10px;
+}
+table th{
+  padding-right: 10px;
+}
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
   transition: margin-left .5s;
